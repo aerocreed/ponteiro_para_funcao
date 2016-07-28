@@ -25,7 +25,7 @@ void invoca(int (*func)()){
 
 int main()
 {
-    int p[TAM] = {funcao1, funcao2, funcao3, funcao4, funcao5};
+    int p[TAM] = {(int)funcao1, (int)funcao2, (int)funcao3, (int)funcao4, (int)funcao5};
     int i, opcao;
     char *nomes[30] = {"Funcao 1", "Funcao 2", "Funcao 3", "Funcao 4", "Funcao 5"};
 
@@ -33,7 +33,7 @@ int main()
     for(i=0; i<TAM; i++)
         printf("%d - %s\n", i+1, nomes[i]);
     scanf("%d", &opcao);
-    invoca(p[opcao-1]);
+    invoca((int(*)())p[opcao-1]);
 
     return 0;
 }

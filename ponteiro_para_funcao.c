@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/* Referências:
+ * http://www.cyan-lang.org/jose/courses/06-2/lc/Ponteiros-para-Funcoes.htm
+ * http://www.dca.fee.unicamp.br/cursos/EA876/apostila/HTML/node144.html
+ */
+
 void funcao1(){
     printf("FUNCAO 1\n");
 }

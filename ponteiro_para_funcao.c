@@ -1,5 +1,4 @@
 #include <stdio.h>
-#define TAM 5
 
 void funcao1(){
     printf("FUNCAO 1\n");
@@ -19,21 +18,15 @@ void funcao5(){
     printf("FUNCAO 5\n");
 }
 
-void invoca(int (*func)()){
+void invoca(void* (*func)()){
     (*func)();
 }
 
 int main()
 {
-    int p[TAM] = {(int)funcao1, (int)funcao2, (int)funcao3, (int)funcao4, (int)funcao5};
-    int i, opcao;
-    char *nomes[30] = {"Funcao 1", "Funcao 2", "Funcao 3", "Funcao 4", "Funcao 5"};
-
-    printf("ESCOLHA UMA OPCAO\n");
-    for(i=0; i<TAM; i++)
-        printf("%d - %s\n", i+1, nomes[i]);
-    scanf("%d", &opcao);
-    invoca((int(*)())p[opcao-1]);
-
+    void* p[] = {funcao1, funcao2, funcao3, funcao4, funcao5, puts, printf};
+    int i;
+    for(i=0; i<(sizeof(p)/sizeof(*p)); i++)
+	    invoca(p[i]);
     return 0;
 }
